@@ -1,0 +1,12 @@
+library(testthat)
+library(vdiffr)
+
+source("Fig2_1.R")
+testthat::test_file("tests/test_fig2.R")
+rm(list=ls())
+source("Fig3_1.R")
+source("Fig3_2.R")
+testthat::test_file("tests/test_fig3.R")
+rm(list=ls())
+source("Fig4.R")
+testthat::test_file("tests/test_fig4.R")
