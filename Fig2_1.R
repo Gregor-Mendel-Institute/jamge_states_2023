@@ -6,6 +6,7 @@ library("ggpubr")
 ## source settings, functions and read in files
 source("support_script/setup_fig2.R")
 # Important data:
+# df_em = emission matrix in tibble formar
 # large_col = state assignment extensive model
 # cg/chg/chh = processed methylation data
 # dnase = processed dnase data
@@ -17,6 +18,22 @@ source("support_script/setup_fig2.R")
 
 # other:
 # cs = color scheme for states
+
+###############################################
+###############################################
+## FIGURE 2A
+###############################################
+###############################################
+
+fig2a = ggplot(df_em, aes(x=fct_rev(state), y=name, fill=state,size=value)) +geom_point(shape=21,alpha=0.7) +scale_fill_manual(values = cs)+
+  scale_x_discrete(position = "bottom") +
+  scale_size_continuous(range = c(1, 5)) +
+  labs(x = NULL, y = NULL) +theme(legend.position = "none")
+
+pdf(paste(out_folder,"Fig2A.pdf",sep="/"))
+plot(fig2a)
+dev.off()
+
 
 ###############################################
 ###############################################

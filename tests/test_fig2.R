@@ -1,7 +1,7 @@
 
 
 test_that("Fig2 Mains are same as used for revision manuscript", {
-  # A missing
+  expect_doppelganger("Fig2A", fig2a)
   expect_doppelganger("Fig2B", fig2b)
   expect_doppelganger("Fig2C", fig2c)
   expect_doppelganger("Fig2D", fig2d)

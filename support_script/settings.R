@@ -37,6 +37,13 @@ map_to_paper = data.frame(
 
 names(cs)=map_to_paper$to # to get the right colors in the plots
 
+sam_ord=c("HTB2","HTB1","HTB4","HTB3","H1",
+          "H3K27me1","H3K9me2","H2AW6","H3K9me1",
+          "H2AW7", "H4K20me1","H3","HTR13",
+          "H3K4me1","HTR5","H3K27me3","H2AK121ub",
+          "H2AZ11","H2AZ9","H3K4me3","H3K14Ac",
+          "H3K9Ac","H2A13","H2A2","H2AX","H2Bub","H3K36me3")
+
 ####################################################
 ## ddm vs col concatenated 
 ####################################################

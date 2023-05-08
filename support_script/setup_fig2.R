@@ -4,6 +4,18 @@ source("support_script/settings.R")
 ##############################
 ## read in files and reformat
 #############################
+# emission matrix from model
+mat_raw=read_delim("data/seedling_26/emissions_26_ChromHMM_ChromHMM_July_AT.txt")
+
+# Make matrix with order of marks from emission tibble
+mat = raw_to_matrix(mat_raw,sam_ord) #sam_ord defined (settings.R)
+mat=mat[map_to_paper$from,sam_ord]
+rownames(mat)=map_to_paper$to # the state names to use  (settings.R)
+
+# to tibble 
+df_em = as_tibble(mat)%>%mutate(state=map_to_paper$to)%>%pivot_longer(-state)%>%mutate(name=factor(name,levels=sam_ord))
+
+
 # states across genome, function only keeps chr1-5 
 large_col=read_and_fix_states("data/seedling_26/AT_26_ChromHMM_ChromHMM_July_AT_segments.bed") # large WT 
  
